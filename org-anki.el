@@ -327,12 +327,6 @@ question and answer are generated from it, and BACK is ignored."
      ((equal "updateNoteFields" (assoc-default "action" action))
       (message "org-anki: note succesfully updated: %s" (org-anki--note-maybe-id note))))))
 
-(defun org-anki--add-note-to-every-action (note-and-actions)
-  ;; :: (Note, [Action]) -> [(Note, Action)]
-  (let ((note (car note-and-actions))
-        (actions (car (cdr note-and-actions))))
-    (-map (lambda (action) (cons note action)) actions)))
-
 (defun org-anki--existing-tags (notes)
   ;; :: [Note] -> Promise (AList Id [Tag])
   (promise-new
