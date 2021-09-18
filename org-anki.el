@@ -379,8 +379,8 @@ question and answer are generated from it, and BACK is ignored."
                         (actions (cdr it)))
                     (--map (cons note it) actions))
                   notes-and-tag-actions))
-                (note-action-pairs (-concat additions updates notes-and-tag-actions2))
-                (actions (--map (cdr it) note-action-pairs)))
+                (note-action-pairs (-concat additions updates notes-and-tag-actions2)) ;; [(Note, Action)]
+                (actions (--map (cdr it) note-action-pairs))) ;; [Action]
 
              (org-anki-connect-request
               (org-anki--multi actions)
